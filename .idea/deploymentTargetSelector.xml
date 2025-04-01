@@ -15,7 +15,7 @@
       </SelectionState>
       <SelectionState runConfigName="dweek04a">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-04-01T04:29:47.998346300Z">
+        <DropdownSelection timestamp="2025-04-01T11:33:09.610224600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\chohs\.android\avd\Kuit_5th_Device_360_800_API_35.avd" />

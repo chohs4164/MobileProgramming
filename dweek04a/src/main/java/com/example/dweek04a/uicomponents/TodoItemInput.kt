@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,12 +25,8 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun TodoItemInput(
-    todoList: MutableList<Item>,
-    showCompleted: Boolean,
-    modifier: Modifier = Modifier
-) {
-    var textState by remember { mutableStateOf("") }
+fun TodoItemInput(todoList: MutableList<Item>, showCompleted: Boolean, modifier: Modifier = Modifier) {
+    var textState by rememberSaveable { mutableStateOf("") }
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -37,7 +34,9 @@ fun TodoItemInput(
     ) {
         TextField(
             value = textState,
-            onValueChange = { newText -> textState = newText },
+            onValueChange = { newText ->
+                textState = newText
+            },
             placeholder = { Text("할 일을 입력하세요", color = Color.Gray) },
             singleLine = true,
             modifier = Modifier
@@ -51,11 +50,6 @@ fun TodoItemInput(
                 val newItem = Item(textState, currentTime, TodoStatus.PENDING)
                 todoList.add(newItem)
 
-                // ✅ 만약 미완료 항목만 보기가 활성화되어 있다면 즉시 반영
-                if (!showCompleted) {
-                    todoList.removeAll { it.status == TodoStatus.COMPLETED }
-                }
-
                 textState = ""
             }
         }) {
@@ -63,6 +57,7 @@ fun TodoItemInput(
         }
     }
 }
+
 
 @Preview
 @Composable

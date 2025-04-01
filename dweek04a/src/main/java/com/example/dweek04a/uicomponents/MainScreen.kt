@@ -31,7 +31,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     val todoList = remember { TodoItemFactory.makeTodoList().toMutableStateList() }
     var showCompleted by remember { mutableStateOf(true) }
 
-    // filteredList를 derivedStateOf로 관리하여 항상 최신 상태 유지
+    // filteredList를 derivedStateOf로 관리하여 항상 최신 상태 유지하기
     val filteredList by remember { derivedStateOf {
         if (showCompleted) todoList
         else todoList.filter { it.status == TodoStatus.PENDING }.toMutableStateList()
