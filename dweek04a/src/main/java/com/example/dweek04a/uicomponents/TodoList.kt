@@ -37,7 +37,7 @@ fun TodoList(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .toggleable( // ✅ Row 전체가 클릭 가능하도록 설정
+                        .toggleable( //
                             value = item.status == TodoStatus.COMPLETED,
                             onValueChange = { checked ->
                                 val index = todoList.indexOf(item)
@@ -49,7 +49,7 @@ fun TodoList(
                             },
                             role = androidx.compose.ui.semantics.Role.Checkbox
                         )
-                        .padding(horizontal = 16.dp) // ✅ 패딩 추가해서 클릭하기 편하게 설정
+                        .padding(horizontal = 16.dp)
                 ) {
                     TodoCheckbox(checked = item.status == TodoStatus.COMPLETED) { checked ->
                         val index = todoList.indexOf(item)
@@ -64,7 +64,7 @@ fun TodoList(
             }
         }
     }
-}ㅎ
+}
 
 @Preview
 @Composable
