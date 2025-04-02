@@ -47,10 +47,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(){
-                Text(text = "202315323 조현승")
-                TodoListTitle()
-            }
+            TodoListTitle()
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text("미완료 항목만 보기")
                 Spacer(modifier = modifier.width(5.dp))
@@ -60,6 +57,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 )
             }
         }
+        Text(text = "202315323 조현승")
         Spacer(modifier = Modifier.height(8.dp))
         Box(
             modifier = Modifier
